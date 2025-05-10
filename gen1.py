@@ -93,7 +93,7 @@ st.markdown("""
         background-color: #732d91;
     }
     div.stButton > button:first-child {
-        background-color: #8e44ad;
+        background-color: #E180FC;
         color: white;
         border-radius: 8px;
         padding: 0.5em 1em;
@@ -101,7 +101,7 @@ st.markdown("""
         transition: 0.3s;
     }
     div.stButton > button:first-child:hover {
-        background-color: #E484FF;
+        background-color:  #8e44ad;
         color: white;
     }
     </style>
