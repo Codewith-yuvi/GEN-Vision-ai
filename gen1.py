@@ -85,7 +85,7 @@ if submit:
         if lottie_spinner is not None:
             st_lottie(
                 lottie_spinner,
-                speed=0.5,
+                speed=0.1,
                 reverse=False,
                 loop=True,
                 quality="low",
