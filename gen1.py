@@ -67,7 +67,7 @@ if lottie_intro is not None:
 st.markdown("""
     <style>
     .stTextInput>div>div>input {
-        height: 80px;  /* Increased height */
+        height: 60px;  /* Increased height */
         font-size: 18px;  /* Increased font size */
         padding: 10px;  /* Increased padding */
         border-radius: 8px;  /* Rounded corners */
