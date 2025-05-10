@@ -69,7 +69,7 @@ st.markdown("""
     .stTextInput>div>div>input {
         height: 60px;  /* Increased height */
         font-size: 18px;  /* Increased font size */
-        padding: 10px;  /* Increased padding */
+        padding: 8px;  /* Increased padding */
         border-radius: 8px;  /* Rounded corners */
     }
     </style>
