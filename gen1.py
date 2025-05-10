@@ -51,7 +51,7 @@ st.subheader("See the better future with GEN-Vision")
 # Intro animation
 st_lottie(
     lottie_coding,
-    speed=1,
+    speed=0.1,
     reverse=False,
     loop=True,
     quality="High",
@@ -93,7 +93,7 @@ st.markdown("""
         background-color: #732d91;
     }
     div.stButton > button:first-child {
-        background-color: #E180FC;
+        background-color:#3CE37C;
         color: white;
         border-radius: 8px;
         padding: 0.5em 1em;
@@ -101,7 +101,7 @@ st.markdown("""
         transition: 0.3s;
     }
     div.stButton > button:first-child:hover {
-        background-color:  #3CE37C;
+        background-color:  #E501FF;
         color: white;
     }
     </style>
