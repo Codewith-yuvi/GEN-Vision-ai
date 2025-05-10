@@ -29,7 +29,7 @@ def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
         return json.load(f)
 
-# Function to load Lottie animation from URL (no delay/retries)
+# Function to load Lottie animation from URL
 def load_lottieurl(url: str):
     try:
         r = requests.get(url)
@@ -41,8 +41,8 @@ def load_lottieurl(url: str):
 
 # Load animations
 lottie_intro = load_lottieurl("https://lottie.host/4a9c4bed-592d-44c5-961c-c1bae9e8474a/OqhE1lQo6r.lottie")
-lottie_coding = load_lottiefile("coding.json")  # Make sure this file exists
-lottie_spinner = load_lottiefile("spinner.json")
+lottie_coding = load_lottiefile("lottiefiles/coding.json")  # Ensure file exists
+lottie_spinner = load_lottiefile("lottiefiles/spinner.json")
 
 # Page header
 st.title("GEN Vision AI Assistant")
@@ -63,10 +63,52 @@ st_lottie(
 if lottie_intro is not None:
     st_lottie(lottie_intro, key="intro_animation")
 
-# Prompt input
+# Prompt input with larger input box
+st.markdown("""
+    <style>
+    .stTextInput>div>div>input {
+        height: 120px;  /* Increased height */
+        font-size: 18px;  /* Increased font size */
+        padding: 10px;  /* Increased padding */
+        border-radius: 8px;  /* Rounded corners */
+        color: blue;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Text input
 input_text = st.text_input("Input prompt:", key="input")
 
-# Image uploader
+# Image uploader with custom CSS for purple background
+st.markdown("""
+    <style>
+    div.stFileUploader > div {
+        background-color: #8e44ad;
+        color: white;
+        border-radius: 8px;
+        padding: 0.5em 1em;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    div.stFileUploader > div:hover {
+        background-color: #732d91;
+    }
+    div.stButton > button:first-child {
+        background-color: #8e44ad;
+        color: white;
+        border-radius: 8px;
+        padding: 0.5em 1em;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    div.stButton > button:first-child:hover {
+        background-color: #732d91;
+        color: white;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# File uploader
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 image = ""
 
@@ -103,6 +145,13 @@ if submit:
     # Remove spinner
     placeholder.empty()
 
-    # Show result
+    # Show result with gray background
     st.header("The Response is:")
-    st.write(response)
+    st.markdown(
+        f"""
+        <div style="background-color: #f0f0f0; padding: 15px; border-radius: 10px; font-size: 16px;">
+            {response}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
