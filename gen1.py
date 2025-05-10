@@ -57,7 +57,7 @@ st.subheader("See the better future with GEN-Vision")
 # Intro animation
 st_lottie(
     lottie_coding,
-    speed=2,
+    speed=1,
     reverse=False,
     loop=True,
     quality="low",
@@ -91,7 +91,7 @@ if submit:
         if lottie_spinner is not None:
             st_lottie(
                 lottie_spinner,
-                speed=1,
+                speed=0.5,
                 reverse=False,
                 loop=True,
                 quality="low",
