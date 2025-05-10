@@ -68,10 +68,9 @@ st.markdown("""
     <style>
     .stTextInput>div>div>input {
         height: 120px;  /* Increased height */
-        font-size: 18px;  /* Increased font size */
+        font-size: 25px;  /* Increased font size */
         padding: 10px;  /* Increased padding */
         border-radius: 8px;  /* Rounded corners */
-        color: blue;
     }
     </style>
 """, unsafe_allow_html=True)
