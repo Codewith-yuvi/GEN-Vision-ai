@@ -8,7 +8,6 @@ import os
 import google.generativeai as genai
 from PIL import Image
 from streamlit_lottie import st_lottie
-import time
 
 # Configure Gemini API
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -30,20 +29,15 @@ def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
         return json.load(f)
 
-# Function to load Lottie animation from URL
-def load_lottieurl(url: str, max_retries=3, delay=1):
-    for attempt in range(max_retries):
-        try:
-            r = requests.get(url)
-            r.raise_for_status()
-            return r.json()
-        except requests.exceptions.RequestException as e:
-            print(f"Attempt {attempt + 1} failed: {e}")
-            if attempt < max_retries - 1:
-                time.sleep(delay)
-            else:
-                print("Max retries reached.")
-                return None
+# Function to load Lottie animation from URL (no delay/retries)
+def load_lottieurl(url: str):
+    try:
+        r = requests.get(url)
+        r.raise_for_status()
+        return r.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error loading Lottie URL: {e}")
+        return None
 
 # Load animations
 lottie_intro = load_lottieurl("https://lottie.host/4a9c4bed-592d-44c5-961c-c1bae9e8474a/OqhE1lQo6r.lottie")
@@ -101,7 +95,7 @@ if submit:
             )
             st.markdown("<h5 style='text-align: center;'>Generating response...</h5>", unsafe_allow_html=True)
         else:
-            st.info("Ideas Catching Fire")
+            st.info("Generating response...")
 
     # Generate the response
     response = get_gemini_response(input_text, image)
