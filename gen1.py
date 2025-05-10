@@ -54,7 +54,7 @@ st_lottie(
     speed=1,
     reverse=False,
     loop=True,
-    quality="low",
+    quality="High",
     height=250,
     width=250,
     key="coding_lottie"
@@ -129,7 +129,7 @@ if submit:
                 speed=0.1,
                 reverse=False,
                 loop=True,
-                quality="low",
+                quality="medium",
                 height=200,
                 width=200,
                 key="loading_spinner"
