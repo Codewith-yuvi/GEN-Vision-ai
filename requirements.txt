@@ -3,3 +3,4 @@ google-generativeai
 python-dotenv
 pypi-json
 requests
+streamlit-lottie
