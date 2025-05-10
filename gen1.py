@@ -82,7 +82,7 @@ input_text = st.text_input("Input prompt:", key="input")
 st.markdown("""
     <style>
     div.stFileUploader > div {
-        background-color: #CC5BEC;
+        background-color: #3CE37C;
         color: white;
         border-radius: 8px;
         padding: 0.5em 1em;
