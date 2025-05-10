@@ -101,7 +101,7 @@ if submit:
             )
             st.markdown("<h5 style='text-align: center;'>Generating response...</h5>", unsafe_allow_html=True)
         else:
-            st.info("Generating response...")
+            st.info("Ideas Catching Fire")
 
     # Generate the response
     response = get_gemini_response(input_text, image)
