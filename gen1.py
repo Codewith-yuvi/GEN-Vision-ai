@@ -47,8 +47,8 @@ def load_lottieurl(url: str, max_retries=3, delay=1):
 
 # Load animations
 lottie_intro = load_lottieurl("https://lottie.host/4a9c4bed-592d-44c5-961c-c1bae9e8474a/OqhE1lQo6r.lottie")
-lottie_coding = load_lottiefile("lottiefiles/coding.json")  # Make sure this file exists
-lottie_spinner = load_lottiefile("lottiefiles/spinner.json")
+lottie_coding = load_lottiefile("coding.json")  # Make sure this file exists
+lottie_spinner = load_lottiefile("spinner.json")
 
 # Page header
 st.title("GEN Vision AI Assistant")
