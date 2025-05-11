@@ -22,24 +22,18 @@ def get_gemini_response(input_text, image):
     return response.text
 
 # Load Lottie animations
-def load_lottieurl(url: str):
-    try:
-        r = requests.get(url)
-        r.raise_for_status()
-        return r.json()
-    except requests.exceptions.RequestException as e:
-        print(f"Error loading Lottie URL: {e}")
-        return None
+def load_lottiefile(filepath: str):
+    with open(filepath, "r") as f:
+        return json.load(f)
 
 # Page config
 st.set_page_config(page_title="GEN Vision AI Assistant")
 
-# Lottie background animation (use a public Lottie URL for testing)
-lottie_bg_url = "https://lottie.host/f201ca57-a901-4438-9688-ebdde12889b8/aBTxm7dGZF.json"  # Replace this with your animation
-lottie_bg = load_lottieurl(lottie_bg_url)
+# Load local Lottie background animation (replace "bg_animation.json" with your actual file path)
+lottie_bg = load_lottiefile("bg_animation.json")  # Make sure this file exists
 
+# Add background animation with CSS styling
 if lottie_bg:
-    # Add background animation with CSS styling
     st.markdown("""
         <style>
         .lottie-bg-container {
@@ -62,21 +56,21 @@ if lottie_bg:
 
     st.markdown("</div>", unsafe_allow_html=True)
 
-# Load other Lottie animations
-lottie_intro = load_lottieurl("https://lottie.host/4a9c4bed-592d-44c5-961c-c1bae9e8474a/OqhE1lQo6r.lottie")
-lottie_coding = load_lottiefile("coding.json")
-lottie_spinner = load_lottiefile("spinner.json")
+# Load other Lottie animations (for intro, spinner, etc.)
+lottie_intro = load_lottiefile("intro.json")  # Adjust path to your intro Lottie file
+lottie_coding = load_lottiefile("coding.json")  # Adjust path to your coding Lottie file
+lottie_spinner = load_lottiefile("spinner.json")  # Adjust path to your spinner Lottie file
 
 # App title and subtitle
 st.title("GEN Vision AI Assistant")
 st.subheader("See the better future with GEN-Vision")
 
-# Lottie animation
+# Lottie animation for coding
 st_lottie(lottie_coding, speed=0.1, loop=True, height=100, width=100, key="coding_lottie")
 if lottie_intro is not None:
     st_lottie(lottie_intro, key="intro_animation")
 
-# Custom CSS styling
+# Custom CSS styling for other elements
 st.markdown("""
     <style>
     .stTextInput>div>div>input {
