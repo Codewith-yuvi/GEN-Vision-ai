@@ -48,7 +48,7 @@ st.title("GEN Vision AI Assistant")
 st.subheader("See the better future with GEN-Vision")
 
 # Lottie animation
-st_lottie(lottie_coding, speed=0.1, loop=True, height=250, width=100, key="coding_lottie")
+st_lottie(lottie_coding, speed=0.1, loop=True, height=100, width=100, key="coding_lottie")
 if lottie_intro is not None:
     st_lottie(lottie_intro, key="intro_animation")
 
@@ -101,7 +101,7 @@ if submit:
     placeholder = st.empty()
     with placeholder.container():
         if lottie_spinner:
-            st_lottie(lottie_spinner, speed=0.1, loop=True, height=150, width=150, key="loading_spinner")
+            st_lottie(lottie_spinner, speed=0.1, loop=True, height=100, width=100, key="loading_spinner")
             st.markdown("<h5 style='text-align: center;'>Ideas Catching Fire... 🔥</h5>", unsafe_allow_html=True)
         else:
             st.info("Generating response...")
