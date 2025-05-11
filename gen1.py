@@ -38,6 +38,27 @@ def load_lottieurl(url: str):
 # Page config
 st.set_page_config(page_title="GEN Vision AI Assistant")
 
+# Load Lottie background animation
+lottie_bg = load_lottiefile("bg_animation.json")
+if lottie_bg:
+    st.markdown("""
+        <style>
+        .lottie-bg-container {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        </style>
+        <div class="lottie-bg-container">
+        """, unsafe_allow_html=True)
+    st_lottie(lottie_bg, speed=1, loop=True, height=900, width=1600, key="background", quality="high")
+    st.markdown("</div>", unsafe_allow_html=True)
+
 # Load animations
 lottie_intro = load_lottieurl("https://lottie.host/4a9c4bed-592d-44c5-961c-c1bae9e8474a/OqhE1lQo6r.lottie")
 lottie_coding = load_lottiefile("coding.json")
